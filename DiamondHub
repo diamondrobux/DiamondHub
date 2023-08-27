@@ -1,25 +1,168 @@
 wait(3.0)
 game.StarterGui:SetCore("SendNotification", {
     Title = "Script Active Now ✅" ;
-    Text = "Thanks For Useing DiamondHub https://discord.gg/PMCZs7ZMvR"; -- DiamondRobux TEAM --
+    Text = "Thanks For Useing DiamondHub https://discord.gg/pEfNGEANR5"; -- DiamondRobux TEAM --
     Duration = 5;
 })
  
  
  
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("DiamondHub | Made By: ( TheComplexJason & Malikxdpro9 )", "BloodTheme")
-local Tab = Window:NewTab("Lucky Block")
-local Section = Tab:NewSection("LUCKEY BLOCK")
-Section:NewButton("FREE BLOCKS", "FOR FREE BLOCKS", function()
-    print("Starting")loadstring(game:HttpGet("https://raw.githubusercontent.com/plutoguy/Tiger-Hub/main/lucky%20blocks%20battleground.lua"))()
+--// Open Source \\--
+ 
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local GameId = game.PlaceId
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local plr = game:GetService("Players").LocalPlayer
+local plrname = plr.Name
+local plrid = plr.UserId
+local plrage = plr.AccountAge
+local plrcount = #game.Players:GetPlayers()
+ 
+--//\\--
+ 
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Vcsk/UI-Library/main/Source/Kavo.lua"))()
+local Window = Library.CreateLib("DiamondHub - Premium ⭐ | ❓ LUCKY BLOCKS Battlegrounds", "BloodTheme")
+ 
+--// Toggle Button \\--
+ 
+if game:GetService("CoreGui"):FindFirstChild("ToggleGui") then
+    game:GetService("CoreGui"):FindFirstChild("ToggleGui"):Destroy()
+end
+ 
+local ToggleGui = Instance.new("ScreenGui")
+local Toggle = Instance.new("TextButton")
+ 
+ToggleGui.Name = "ToggleGui"
+ToggleGui.Parent = game.CoreGui
+ 
+Toggle.Name = "Toggle"
+Toggle.Parent = ToggleGui
+Toggle.BackgroundColor3 = Color3.fromRGB(4, 6, 8)
+Toggle.BackgroundTransparency = 0.000
+Toggle.Position = UDim2.new(0, 0, 0.454706937, 0)
+Toggle.Size = UDim2.new(0.0920164187, 0, 0.0988099447, 0)
+Toggle.Font = Enum.Font.SourceSans
+Toggle.Text = "DiamondHub"
+Toggle.TextColor3 = Color3.fromRGB(0,183,235)
+Toggle.TextSize = 17.000
+Toggle.TextXAlignment = Enum.TextXAlignment.Left
+Toggle.Active = true
+Toggle.Draggable = true
+Toggle.MouseButton1Click:connect(function()
+    Library:ToggleUI()
 end)
  
-Section:NewButton("ESP PLAYERS", "ESP Players", function()
-    print("Starting")loadstring(game:HttpGet(('https://raw.githubusercontent.com/zachisfunny/esp-unversal/main/script'),true))()
+--//\\--
+ 
+local t1 = Window:NewTab("Home")
+local t2 = Window:NewTab("Free Blocks")
+local t3 = Window:NewTab("Misc")
+local t4 = Window:NewTab("Player")
+local t5 = Window:NewTab("Other")
+ 
+local s1 = t1:NewSection("Welcome, " ..plrname)
+local s2 = t2:NewSection("FREE BLOCKS")
+local s3 = t3:NewSection("MISC")
+local s4 = t4:NewSection("LOCAL PLAYER")
+local s5 = t5:NewSection("VERSON")
+local s6 = t5:NewSection("Devlopers")
+local s7 = t5:NewSection("Support")
+ 
+s1:NewButton("User : " ..plrname.. " | " ..plrid)
+s1:NewButton("Game : " ..GameName.. " | " ..GameId)
+s1:NewButton("Account Age : " ..plrage.. " Days")
+s1:NewButton("Players ingame : " ..plrcount.. "/8")
+s1:NewKeybind("Toggle Keybind", "Toggle", Enum.KeyCode.F, function()
+	Library:ToggleUI()
 end)
  
-Section:NewButton("FLY", "For Fly", function()
-    print("Starting")loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
+s1:NewLabel("For Support ⬇️")
  
+s1:NewLabel("https://discord.gg/pEfNGEANR5")
+ 
+s1:NewLabel("https://discord.gg/PMCZs7ZMvR")
+ 
+s2:NewTextBox("Amount Of Blocks","No Info", function(txt)
+    getgenv().AmountOfBlocks = txt
 end)
+ 
+s2:NewButton("Lucky Block","No Info", function()
+    for _ = 1,AmountOfBlocks do
+        ReplicatedStorage.SpawnLuckyBlock:FireServer()
+    end
+end)
+ 
+s2:NewButton("Super Block","No Info", function()
+    for _ = 1,AmountOfBlocks do
+        ReplicatedStorage.SpawnSuperBlock:FireServer()
+    end
+end)
+ 
+s2:NewButton("Diamond Block","No Info", function()
+    for _ = 1,AmountOfBlocks do
+        ReplicatedStorage.SpawnDiamondBlock:FireServer()
+    end
+end)
+ 
+s2:NewButton("Rainbow Block","No Info", function()
+    for _ = 1,AmountOfBlocks do
+        ReplicatedStorage.SpawnRainbowBlock:FireServer()
+    end
+end)
+ 
+s2:NewButton("Galaxy Block","No Info", function()
+    for _ = 1,AmountOfBlocks do
+        ReplicatedStorage.SpawnGalaxyBlock:FireServer()
+    end
+end)
+ 
+s3:NewButton("ESP Players","For ESP Players", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/zachisfunny/esp-unversal/main/script"))()
+end)
+ 
+s4:NewTextBox("Set WalkSpeed","WalkSpeed", function(v)
+    pcall(function()
+        plr.Character.Humanoid.WalkSpeed = v
+    end)
+end)
+ 
+s4:NewTextBox("Set JumpPower","JumpPower", function(v)
+    plr.Character.Humanoid.JumpPower = v
+end)
+ 
+s4:NewSlider("Fov","Field Of View",120,70, function(v)
+     game.Workspace.CurrentCamera.FieldOfView = v
+end)
+ 
+s4:NewToggle("Noclip","can go through wall", function(s)
+_G.Noclip = s
+while _G.Noclip == true do
+        game:GetService("RunService").Stepped:wait()
+	game.Players.LocalPlayer.Character.Head.CanCollide = false
+	game.Players.LocalPlayer.Character.Torso.CanCollide = false
+end
+end)
+ 
+s4:NewToggle("Infinite Jump","Infinite Jump", function(s)
+_G.InfJ = s
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if _G.InfJ == true then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+end)
+ 
+s5:NewButton("VERSON: V1.0", "Script Verson", function()
+end)
+ 
+s6:NewButton("#1 (TheComplexJason)", "Devloper Number One", function()
+end)
+ 
+s6:NewButton("#2 (Malikxdpro9)", "Devloper Number Two", function()
+end)
+ 
+s7:NewButton("https://discord.gg/pEfNGEANR5", "Server Number One From Support", function()
+end)
+ 
+s7:NewButton("https://discord.gg/PMCZs7ZMvR", "Server Number Two From Support", function()
+end) -- DiamondRobux TEAM --
