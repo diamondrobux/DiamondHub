@@ -1,11 +1,87 @@
-local list = {
-    
-    ["662417684"] = "https://raw.githubusercontent.com/diamondrobux/DiamondHub-Luckey-Blocks/main/DiamondHub-Premium",
-    ["2753915549"] = "https://raw.githubusercontent.com/diamondrobux/DiamondHub-BloxFruit/main/DiamondHub-BloxFruit",
-}
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "DiamondHub | Made By: TheComplexJason & Malikxdpro9", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+ 
+local Tab = Window:MakeTab({
+	Name = "Supported Maps",
+	Icon = "rbxassetid://4483362458",
+	PremiumOnly = false
+})
+local Tab2 = Window:MakeTab({
+	Name = "Run Script",
+	Icon = "rbxassetid://4483362458",
+	PremiumOnly = false
+})
+local Tab3 = Window:MakeTab({
+	Name = "Other",
+	Icon = "rbxassetid://4483362458",
+	PremiumOnly = false
+})
 
-for id, url in next, list do
-    if string.find(id, game.PlaceId) then
-        loadstring(game:HttpGet(url))(); break
-    end
-end
+Tab:AddLabel("SUPPORT ⬇️")
+Tab:AddButton({
+	Name = "https://discord.gg/pEfNGEANR5              (Click To Coppy)",
+	Callback = function()
+      	setclipboard('https://discord.gg/pEfNGEANR5')
+	end
+})
+Tab:AddButton({
+	Name = "https://discord.gg/PMCZs7ZMvR             (Click To Coppy)",
+	Callback = function()
+      	setclipboard('https://discord.gg/PMCZs7ZMvR')
+	end
+})
+local Section = Tab:AddSection({
+	Name = "Made by: TheComplexJason & Malikxdpro9"
+})
+ 
+ OrionLib:Init()
+ 
+Tab3:AddLabel("VERSION")
+Tab3:AddButton({
+	Name = "VERSION: 1.28",
+	Callback = function()
+  	end    
+})
+ 
+Tab3:AddLabel("DEVLOPERS")
+Tab3:AddButton({
+	Name = "#1 TheComplexJason                                (Click To Coppy)",
+	Callback = function()
+      	setclipboard('TheComplexJason')
+	end
+})
+Tab3:AddButton({
+	Name = "#2 Malikxdpro9                                         (Click To Coppy)",
+	Callback = function()
+      	setclipboard('Malikxdpro9')
+	end
+})
+ 
+Tab3:AddLabel("SUPPORT ⬇️")
+Tab3:AddButton({
+	Name = "https://discord.gg/pEfNGEANR5              (Click To Coppy)",
+	Callback = function()
+      	setclipboard('https://discord.gg/pEfNGEANR5')
+	end
+})
+Tab3:AddButton({
+	Name = "https://discord.gg/PMCZs7ZMvR             (Click To Coppy)",
+	Callback = function()
+      	setclipboard('https://discord.gg/PMCZs7ZMvR')
+	end
+})
+ 
+OrionLib:MakeNotification({
+	Name = "DiamondHub",
+	Content = "Script Actived Now ✅",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+OrionLib:MakeNotification({
+	Name = "DiamondHub",
+	Content = "Copied link to the discord server!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+setclipboard('https://discord.gg/pEfNGEANR5')
+OrionLib:Init() -- DiamondHub TEAM --
