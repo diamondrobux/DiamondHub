@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "DiamondHub | Regular Version", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Window = OrionLib:MakeWindow({Name = "DiamondHub 💎 | ❓ LUCKY BLOCKS", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
  
 local Tab = Window:MakeTab({
 	Name = "Supported Maps",
@@ -17,19 +17,9 @@ local Tab3 = Window:MakeTab({
 	PremiumOnly = false
 })
 
-Tab:AddLabel("SUPPORT ⬇️")
-Tab:AddButton({
-	Name = "https://discord.gg/pEfNGEANR5              (Click To Coppy)",
-	Callback = function()
-      	setclipboard('https://discord.gg/pEfNGEANR5')
-	end
-})
-Tab:AddButton({
-	Name = "https://discord.gg/PMCZs7ZMvR             (Click To Coppy)",
-	Callback = function()
-      	setclipboard('https://discord.gg/PMCZs7ZMvR')
-	end
-})
+Tab:AddLabel("❓ LUCKY BLOCKS")
+Tab:AddLabel("Murderers VS Sheriffs Duels")
+
 local Section = Tab:AddSection({
 	Name = "Made by: TheComplexJason & Malikxdpro9"
 })
