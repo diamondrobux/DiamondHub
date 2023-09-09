@@ -17,14 +17,29 @@ local Tab3 = Window:MakeTab({
 	PremiumOnly = false
 })
 
-Tab:AddLabel("❓ LUCKY BLOCKS Battlegrounds")
-Tab:AddLabel("Murderers VS Sheriffs Duels")
+Tab:AddLabel("❓ LUCKY BLOCKS Battlegrounds (New!)")
+Tab:AddLabel("Murderers VS Sheriffs Duels (New!)")
 
 local Section = Tab:AddSection({
 	Name = "Made by: TheComplexJason & Malikxdpro9"
 })
- 
- OrionLib:Init()
+
+Tab2:AddButton({
+	Name = "❓ LUCKY BLOCKS Battlegrounds (New!)",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/diamondrobux/DiamondHub-Lucky-Blocks/main/DiamondHub-Luckey-Blocks"))();
+         print("button pressed")
+  	end    
+})
+Tab2:AddButton({
+	Name = "Murderers VS Sheriffs Duels (New!)",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/diamondrobux/DiamondHub-Murderers-VS-Sheriffs/main/DiamondHub-Murderers-VS-Sheriffs"))();
+         print("button pressed")
+  	end    
+})
+
+OrionLib:Init()
  
 Tab3:AddLabel("VERSION")
 Tab3:AddButton({
